@@ -27,7 +27,11 @@ while programaAtivo:
             i += 1
             
         case 2:
-            pass
+            remo = int(input('Digite o usuário que você deseja remover: '))
+            if remo < 0 or remo >- i:
+                print('Digite um usuário válido: ')
+            else:
+                matriz[remo - 1].remove
         case 3:
             pesq = int(input('Digite o usuário que você deseja pesquisar: '))
             if pesq < 0 or pesq >= i:
@@ -37,8 +41,30 @@ while programaAtivo:
                 print(f'{"Data" :<10}  {"Água Utilizada" :<5}  {"Energia Elétrica" : <5}  {"Lixo Não Reciclavel": <5}  {"Lixo Reciclavel": <5}  {"Transporte":<5}')
                 for j in range(len(matriz[pesq - 1])):
                     print(f'{matriz[pesq - 1][j] :<17}', end=" ")
-                print()  
-
+                print(f'\n\nClassificação de sustentabilidade\nConsumo da água')
+                if matriz[pesq][1] < 150:
+                    print(f'\n\tAlta Sustentabilidade')
+                elif matriz[pesq][1] <= 200 and matriz[pesq - 1][1] >= 150:
+                    print(f'\n\tModerada Sustentabilidade')
+                else:
+                    print(f'\n\tBaixa Sustentabilidade')
+                print(f'\nGeração de Resíduos Não Recicláveis')
+                if matriz[pesq][4] > 50:
+                    print(f'\n\tAlta Sustentabilidade')
+                elif matriz[pesq][4] <= 50 and matriz[pesq - 1][4] > 20:
+                    print(f'\n\tModerada Sustentabilidade')
+                else:
+                    print(f'\n\tBaixa Sustentabilidade')
+                print(f'\nConsumo de Enegia Elétrica')
+                if matriz[pesq][2] < 5:
+                    print(f'\n\tAlta Sustentabilidade')
+                elif matriz[pesq][2] >= 5 and matriz[pesq][2] <=10:
+                    print(f'\n\tModerada Sustentabilidade')
+                else:
+                    print(f'\n\tBaixa Sustentabilidade')
+                print(f'\nUso de Transporte')
+                if matriz[pesq][5] == 1 or matriz[pesq][5] == 2 or matriz[pesq][5] == 5:
+                    print(f'\n\tAlta Sustentabilidade')          
         case 0:
             print('Fechando programa...')
             programaAtivo = False
