@@ -16,16 +16,15 @@ while programaAtivo:
             
             if pRec < 0 or pRec > 100:
                 print('Entre com um valor de 0 a 100 (em %)!')
+                input('Pressione Enter para continuar...')
                 continue
-            
             tran = int(input(f'\tQual o meio de transporte você usou hoje? \n\t\t1. Transporte público (ônibus, metrô, trem)\n\t\t2. Bicicleta\n\t\t3. Caminhada\n\t\t4. Carro (combustível fóssil)\n\t\t5. Carro Elétrico\n\t\t6. Carona Compartilhada\n'))
-            
             if tran < 1 or tran > 6:
                 print('Entre com uma opção de 1 a 6! ')
+                input('Pressione Enter para continuar...')
                 continue 
             matriz.append([data, agua, eEle, nRec, pRec, tran])
             i += 1
-            
         case 2:
             remo = int(input('Digite o usuário que você deseja remover: '))
             if remo < 0 or remo >- i:
@@ -36,11 +35,13 @@ while programaAtivo:
             pesq = int(input('Digite o usuário que você deseja pesquisar: '))
             if pesq < 0 or pesq >= i:
                 print('Digite um usuário válido!')
+                input('Pressione Enter para continuar...')
                 continue
             else:
                 print(f'{"Data" :<10}  {"Água Utilizada" :<5}  {"Energia Elétrica" : <5}  {"Lixo Não Reciclavel": <5}  {"Lixo Reciclavel": <5}  {"Transporte":<5}')
                 for j in range(len(matriz[pesq - 1])):
                     print(f'{matriz[pesq - 1][j] :<17}', end=" ")
+                input('Pressione Enter para continuar...')
                 print(f'\n\nClassificação de sustentabilidade\nConsumo da água')
                 if matriz[pesq][1] < 150:
                     print(f'\n\tAlta Sustentabilidade')
@@ -48,6 +49,7 @@ while programaAtivo:
                     print(f'\n\tModerada Sustentabilidade')
                 else:
                     print(f'\n\tBaixa Sustentabilidade')
+                input('Pressione Enter para continuar...')
                 print(f'\nGeração de Resíduos Não Recicláveis')
                 if matriz[pesq][4] > 50:
                     print(f'\n\tAlta Sustentabilidade')
@@ -55,6 +57,7 @@ while programaAtivo:
                     print(f'\n\tModerada Sustentabilidade')
                 else:
                     print(f'\n\tBaixa Sustentabilidade')
+                input('Pressione Enter para continuar...')
                 print(f'\nConsumo de Enegia Elétrica')
                 if matriz[pesq][2] < 5:
                     print(f'\n\tAlta Sustentabilidade')
@@ -62,6 +65,7 @@ while programaAtivo:
                     print(f'\n\tModerada Sustentabilidade')
                 else:
                     print(f'\n\tBaixa Sustentabilidade')
+                input('Pressione Enter para continuar...')
                 print(f'\nUso de Transporte')
                 if matriz[pesq][5] == 1 or matriz[pesq][5] == 2 or matriz[pesq][5] == 5:
                     print(f'\n\tAlta Sustentabilidade')          
