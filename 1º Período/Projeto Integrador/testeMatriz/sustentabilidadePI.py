@@ -26,11 +26,7 @@ while programaAtivo:
             matriz.append([data, agua, eEle, nRec, pRec, tran])
             i += 1
         case 2:
-            remo = int(input('Digite o usuário que você deseja remover: '))
-            if remo < 0 or remo >- i:
-                print('Digite um usuário válido: ')
-            else:
-                matriz[remo - 1].remove
+            pass
         case 3:
             pesq = int(input('Digite o usuário que você deseja pesquisar: '))
             if pesq < 0 or pesq >= i:
@@ -39,8 +35,8 @@ while programaAtivo:
                 continue
             else:
                 print(f'{"Data" :<10}  {"Água Utilizada" :<5}  {"Energia Elétrica" : <5}  {"Lixo Não Reciclavel": <5}  {"Lixo Reciclavel": <5}  {"Transporte":<5}')
-                for j in range(len(matriz[pesq - 1])):
-                    print(f'{matriz[pesq - 1][j] :<17}', end=" ")
+                for j in range(len(matriz[pesq])):
+                    print(f'{matriz[pesq][j] :<17}', end=" ")
                 input('Pressione Enter para continuar...')
                 print(f'\n\nClassificação de sustentabilidade\nConsumo da água')
                 if matriz[pesq][1] < 150:
