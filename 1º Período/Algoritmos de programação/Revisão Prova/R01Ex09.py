@@ -1,6 +1,5 @@
-alunos = int(input('Quantidade de Alunos: '))
-somaNotas = 0
-for i in range(0,alunos):
-    nota = float(input(f'Nota do {i+1}º aluno: '))
-    somaNotas += nota
-print(f'Nota média da classe: {somaNotas / alunos : .1f}')
+somaV = 0
+for i in range(1, 11):
+    V = float(input(f'Entre com o {i}º valor: '))
+    somaV += V
+print(f'Média aritmética dos valores:{somaV / 10 : .1f}')
