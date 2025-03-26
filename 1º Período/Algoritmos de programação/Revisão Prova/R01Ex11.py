@@ -1,12 +1,17 @@
-N = int(input('Entre com a quantidade de vezes que a sequência será rodada: '))
-anterior1 = 2
-anterior2 = 1
-x = 0
-print(f'{anterior2} {anterior1}',end=" ")
-for i in range(1, N - 1):
-    x = 2 * anterior1 + anterior2
-    if i % 2 == 1:
-        anterior2 = x
-    else:
-        anterior1 = x   
-    print(x, end=" ")
+maiorSalario = 0
+somaSalario = 0
+somaFilhos = 0
+cont1 = 0
+cont2 = 0
+salario = float(input('Salário: '))
+while salario >= 0:
+    nFilhos = int(input('Número de Filhos: '))
+    somaSalario += salario
+    somaFilhos += nFilhos
+    if salario > maiorSalario:
+        maiorSalario = salario
+    if salario < 1500:
+        cont2 += 1
+    cont1 += 1
+    salario = float(input('Salário: '))
+print(f'\na) R${somaSalario / cont1 : .2f}.\nb) {somaFilhos / cont1} filhos.\nc) R${maiorSalario : .2f}.\nd) {(cont2 / cont1) * 100}%')
