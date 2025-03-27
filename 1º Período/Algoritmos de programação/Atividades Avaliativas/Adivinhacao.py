@@ -1,6 +1,4 @@
 import random
-nAdv = 0
-nSec = 1
 programaAtivo = 1
 while programaAtivo == 1:   
     #nSec = random.randint(1000,9999)
