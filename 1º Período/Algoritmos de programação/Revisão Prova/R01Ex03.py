@@ -1,6 +1,7 @@
 A = int(input('A: '))
 B = int(input('B: '))
 C = int(input('C: '))
+
 if A != B and A != C and B !=C:
     if A > B and A > C:
         if B > C:
@@ -17,3 +18,5 @@ if A != B and A != C and B !=C:
             print(f'{C}, {A}, {B}')
         else:
             print({C}, {B}, {A})
+else:
+    print('Digite números diferentes!')
