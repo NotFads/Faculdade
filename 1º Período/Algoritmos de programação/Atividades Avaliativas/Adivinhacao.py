@@ -1,8 +1,7 @@
 import random
 programaAtivo = 1
 while programaAtivo == 1:   
-    #nSec = random.randint(1000,9999)
-    nSec = 1234
+    nSec = random.randint(1000,9999)
     nSec1 = nSec // 1000
     nSec2 = (nSec // 100) % 10
     nSec3 = (nSec // 10) % 10
@@ -14,8 +13,9 @@ while programaAtivo == 1:
     input(f'\t\t\t<<< Pressione Enter >>>')
     while i > 0:
         dica = 1
+        tDica = random.randint(1,2)
         nAdv = int(input('Digite a sua tentativa de senha: '))
-        while nAdv < 1000 or nAdv > 9999:
+        while nAdv <= 1000 or nAdv >= 9999:
             print(f'\t\tATENÇÃO!!!\n\t\t\tSenha inválida!\n\t\t\tDigite um Valor Entre 1000 e 9999.')
             nAdv = int(input('Digite a sua tentativa de senha: '))
         nAdv1 = nAdv // 1000
@@ -26,33 +26,51 @@ while programaAtivo == 1:
         if nSec1 == nAdv1:
             print(nSec1, end=" ")
             acert += 1
-        elif i <= 5 and dica == 1:
-            if nSec1 % 2 == 0:
-                print("Par", end=" ")
+        elif i <= 6 and dica == 1:
+            if tDica == 1:
+                if nSec1 % 2 == 0:
+                    print("Par", end=" ")
+                else:
+                    print("Ímpar", end=" ")
             else:
-                print("Ímpar", end=" ")
+                if nSec1 >= 5:
+                    print(">=5", end=" ")
+                else:
+                    print("<5",end=" ")
             dica = 0        
         else:
             print('_', end=" ")    
         if nSec2 == nAdv2:
             print(nSec2,end=" ")
             acert += 1
-        elif i <= 5 and dica == 1:
-            if nSec2 % 2 == 0:
-                print('Par',end=" ")
+        elif i <= 6 and dica == 1:
+            if tDica == 1:
+                if nSec2 % 2 == 0:
+                    print('Par',end=" ")
+                else:
+                    print('Impar', end=" ")
             else:
-                print('Impar', end=" ")
+                if nSec2 >= 5:
+                    print(">=5",end=" ")
+                else:
+                    print("<5",end=" ")
             dica = 0
         else:
             print('_', end=" ")              
         if nSec3 == nAdv3:
             print(nSec3,end=" ")
             acert += 1
-        elif i <= 5 and dica == 1:
-            if nSec3 % 2 == 0:
-                print('Par',end=" ")
+        elif i <= 6 and dica == 1:
+            if tDica == 1:
+                if nSec3 % 2 == 0:
+                    print('Par',end=" ")
+                else:
+                    print('Impar', end=" ")
             else:
-                print('Impar', end=" ")
+                if nSec3 >= 5:
+                    print(">=5",end=" ")
+                else:
+                    print("<5",end=" ")
             dica = 0
         else:
             print('_', end=" ")
@@ -60,11 +78,17 @@ while programaAtivo == 1:
             print(nSec4, end=" ")
             acert += 1
 
-        elif i <= 5 and dica == 1:
-            if nSec4 % 2 == 0:
-                print('Par',end=" ")
+        elif i <= 6 and dica == 1:
+            if tDica == 1:
+                if nSec4 % 2 == 0:
+                    print('Par',end=" ")
+                else:
+                    print('Impar', end=" ")
             else:
-                print('Impar', end=" ")
+                if nSec4 >= 5:
+                    print(">=5",end=" ")
+                else:
+                    print("<5",end=" ")
             dica = 0
         else:
             print('_', end=" ")
