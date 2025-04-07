@@ -1,8 +1,7 @@
 import random
 programaAtivo = 1
 while programaAtivo == 1:   
-    #nSec = random.randint(1000,9999)
-    nSec = 1234
+    nSec = random.randint(1000,9999)
     nSec1 = nSec // 1000
     nSec2 = (nSec // 100) % 10
     nSec3 = (nSec // 10) % 10
