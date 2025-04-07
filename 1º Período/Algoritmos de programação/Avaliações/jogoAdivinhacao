@@ -1,5 +1,8 @@
 import random
 programaAtivo = 1
+#guardar o número
+#mudar a posicao da dica se errar 2 vezes
+#remover strings
 while programaAtivo == 1:   
     nSec = random.randint(1000,9999)
     nSec1 = nSec // 1000
