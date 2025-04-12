@@ -2,16 +2,21 @@ import random
 programaAtivo = 1
 #guardar o número
 #mudar a posicao da dica se errar 2 vezes
-#remover strings
 while programaAtivo == 1:   
-    nSec = random.randint(1000,9999)
+    #nSec = random.randint(1000,9999)
+    nSec = 1234
     nSec1 = nSec // 1000
     nSec2 = (nSec // 100) % 10
     nSec3 = (nSec // 10) % 10
     nSec4 = nSec % 10
     i = 10
     tent = 0
-    print(f"|{'-' * 30}Bem vindo(a) ao Jogo da Adivinhação!{'-' * 30}|\n|{' ' * 96}|\n|Você terá 10 tentativas para adivinhar uma senha aleatória de 4 digitos (entre 1000 e 9999).{' ' * 4}|\n|A partir da 5ª tentativa o jogo irá te dar dicas sobre os números não descobertos.{' ' * 14}|\n|{' ' * 96}|\n|{'-' * 96}|")
+    pos = 0
+    n1 = '_'
+    n2 = '_'
+    n3 = '_'
+    n4 = '_'
+    print(f"Bem vindo(a) ao Jogo da Adivinhação!\n\nVocê terá 10 tentativas para adivinhar uma senha aleatória de 4 digitos (entre 1000 e 9999).\nA partir da 5ª tentativa o jogo irá te dar dicas sobre os números não descobertos.\n\n")
     input(f"<<< Pressione Enter >>>")  
     while i > 0:
         acert = 0
@@ -24,28 +29,31 @@ while programaAtivo == 1:
         nAdv2 = ((nAdv // 100) % 10)
         nAdv3 = ((nAdv // 10) % 10)
         nAdv4 = nAdv % 10
-        print(f"|{'-' * 17}Sua senha é{'-' * 17}|")
+        print(f"Sua senha é: ",end="")
         if nSec1 == nAdv1:
-            print(f" {nSec1}", end=" ")
+            n1 = nSec1
+            print(n1, end=" ")
             acert += 1
-        elif i <= 6 and dica == 1:
+        elif n1 != nSec1 and i <= 6 and dica == 1 and pos < 2:
             if i % 2 == 0:
                 if nSec1 % 2 == 0:
-                    print(" Par", end=" ")
+                    print("Par", end=" ")
                 else:
-                    print(" Ímpar", end=" ")
+                    print("Ímpar", end=" ")
             else:
                 if nSec1 >= 5:
-                    print(" >=5", end=" ")
+                    print(">=5", end=" ")
                 else:
-                    print(" <5",end=" ")
-            dica = 0        
+                    print("<5",end=" ")
+            dica = 0
+            pos += 1        
         else:
-            print(' _', end=" ")    
+            print(n1, end=" ")    
         if nSec2 == nAdv2:
-            print(nSec2,end=" ")
+            n2 = nSec2
+            print(n2,end=" ")
             acert += 1
-        elif i <= 6 and dica == 1:
+        elif n2 != nSec2 and i <= 6 and dica == 1 and pos < 4:
             if i % 2 == 0:
                 if nSec2 % 2 == 0:
                     print('Par',end=" ")
@@ -57,12 +65,14 @@ while programaAtivo == 1:
                 else:
                     print("<5",end=" ")
             dica = 0
+            pos += 1
         else:
-            print('_', end=" ")              
+            print(n2, end=" ")              
         if nSec3 == nAdv3:
-            print(nSec3,end=" ")
+            n3 = nSec3
+            print(n3,end=" ")
             acert += 1
-        elif i <= 6 and dica == 1:
+        elif n3 != nSec3 and i <= 6 and dica == 1 and pos < 6:
             if i % 2 == 0:
                 if nSec3 % 2 == 0:
                     print('Par',end=" ")
@@ -74,13 +84,14 @@ while programaAtivo == 1:
                 else:
                     print("<5",end=" ")
             dica = 0
+            pos += 1
         else:
-            print('_', end=" ")
+            print(n3, end=" ")
         if nSec4 == nAdv4:
-            print(nSec4)
+            n4 = nSec4
+            print(n4)
             acert += 1
-
-        elif i <= 6 and dica == 1:
+        elif n4 != nSec4 and i <= 6 and dica == 1 and pos < 8:
             if i % 2 == 0:
                 if nSec4 % 2 == 0:
                     print(f"Par")
@@ -92,8 +103,10 @@ while programaAtivo == 1:
                 else:
                     print(f"<5")
             dica = 0
+            pos += 1
         else:
-            print(f"_")
+            print(n4)
+            pos = 0
         tent += 1
         if nSec == nAdv:
             i = -1
@@ -104,15 +117,12 @@ while programaAtivo == 1:
             else:
                 print(f'\n Você acertou {acert} dígito(s)...')
             print(f' Restam {i} tentativas...')
-            print(f"|{'-' * 45}|")
             input(f'\t\t\t<<< Pressione Enter >>>')
     else:
         if i == 0:
-            print(f"|{'-' * 45}|")
             print(f'Número de Tentativas Excedidas!!!\n\nVOCÊ PERDEU!\nA SENHA ERA: {nSec}')
             input(f'\n\t\t\t<<< Pressione Enter >>>')
         else:
-            print(f"|{'-' * 45}|")
             print(f'\n\tP A R A B É N S ! ! !\n\n\t\tVocê adivinhou a senha: {nSec}\n\tem {tent} tentativas...')
             input(f'\n\t\t\t<<< Pressione Enter >>>')
         programaAtivo = int(input('Jogar De Novo? 1=SIM E 0=NÃO\n'))
