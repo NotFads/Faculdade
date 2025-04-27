@@ -17,10 +17,10 @@ while programaAtivo == 1:
     n3 = 0
     n4 = 0
 
-    milhar_descoberta = False
-    centena_descoberta = False
-    dezena_descoberta = False
-    unidade_descoberta = False
+    milhar_descoberta = 0
+    centena_descoberta = 0
+    dezena_descoberta = 0
+    unidade_descoberta = 0
 
     err_milhar = 0
     err_centena = 0
@@ -47,14 +47,14 @@ while programaAtivo == 1:
 
         if nSec1 == nAdv1:
             n1 = nSec1
-            milhar_descoberta = True
+            milhar_descoberta = 1
             print(n1, end=" ")
             acert += 1
-        elif not milhar_descoberta and i <= 6 and dica == 1:
+        elif milhar_descoberta == 0 and i <= 6 and dica == 1:
             print("Par" if nSec1 % 2 == 0 else "Ímpar", end=" ") if i % 2 == 0 else print(">=5" if nSec1 >= 5 else "<5", end=" ")
             err_milhar += 1
             if err_milhar >= 2:
-                milhar_descoberta = True
+                milhar_descoberta = 1
             dica = 0
         else:
             if n1 == 0:
@@ -64,14 +64,14 @@ while programaAtivo == 1:
 
         if nSec2 == nAdv2:
             n2 = nSec2
-            centena_descoberta = True
+            centena_descoberta = 1
             print(n2, end=" ")
             acert += 1
-        elif milhar_descoberta and not centena_descoberta and i <= 6 and dica == 1:
+        elif milhar_descoberta == 1 and centena_descoberta == 0 and i <= 6 and dica == 1:
             print("Par" if nSec2 % 2 == 0 else "Ímpar", end=" ") if i % 2 == 0 else print(">=5" if nSec2 >= 5 else "<5", end=" ")
             err_centena += 1
             if err_centena >= 2:
-                centena_descoberta = True
+                centena_descoberta = 1
             dica = 0
         else:
             if n2 == 0:
@@ -81,14 +81,14 @@ while programaAtivo == 1:
 
         if nSec3 == nAdv3:
             n3 = nSec3
-            dezena_descoberta = True
+            dezena_descoberta = 1
             print(n3, end=" ")
             acert += 1
-        elif centena_descoberta and not dezena_descoberta and i <= 6 and dica == 1:
+        elif centena_descoberta == 1 and dezena_descoberta == 0 and i <= 6 and dica == 1:
             print("Par" if nSec3 % 2 == 0 else "Ímpar", end=" ") if i % 2 == 0 else print(">=5" if nSec3 >= 5 else "<5", end=" ")
             err_dezena += 1
             if err_dezena >= 2:
-                dezena_descoberta = True
+                dezena_descoberta = 1
             dica = 0
         else:
             if n3 == 0:
@@ -98,14 +98,14 @@ while programaAtivo == 1:
 
         if nSec4 == nAdv4:
             n4 = nSec4
-            unidade_descoberta = True
+            unidade_descoberta = 1
             print(n4)
             acert += 1
-        elif dezena_descoberta and not unidade_descoberta and i <= 6 and dica == 1:
+        elif dezena_descoberta == 1 and unidade_descoberta == 0 and i <= 6 and dica == 1:
             print("Par" if nSec4 % 2 == 0 else "Ímpar") if i % 2 == 0 else print(">=5" if nSec4 >= 5 else "<5")
             err_unidade += 1
             if err_unidade >= 2:
-                unidade_descoberta = True
+                unidade_descoberta = 1
             dica = 0
         else:
             if n4 == 0:
