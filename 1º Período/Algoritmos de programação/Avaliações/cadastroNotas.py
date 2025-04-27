@@ -60,29 +60,28 @@ while menuAtivo == 1:
     elif menu == 1:
         print("Registro de Médias Geral:")
         for i in range(nAlunos):
-            print(registro[i])
-        input(f"\n\t===>Pressione Enter Para Continuar")
+            print(f"\n\tNome: {registro[i][0]}\n\tMédia Teórica: {registro[i][3][0] : .1f}\n\tMédia Prática: {registro[i][3][1] : .1f}\n\tMédia Final: {registro[i][4] : .1f}")
+        input(f"\n\t\t===>Pressione Enter Para Continuar")
     elif menu == 2:
         nomeB = input("Entre com o nome que você deseja buscar: ")
+        encontrado = 0
         for i in range(nAlunos):
             if nomeB.lower() == registro[i][0].lower():
-                print(registro[i])
+                print(f"\n\tNome: {registro[i][0]}\n\tNotas Teóricas: {registro[i][1]}\n\tNotas Práticas: {registro[i][2]}\n\tMédias Teórica/Prática {registro[i][3]}\n\tMédia Final: {registro[i][4] : .1f}")
                 encontrado = 1
-            else:
-                encontrado = 0
         if encontrado == 0:
-            print("Aluno não encontrado.")
-        input(f"\n\t===>Pressione Enter Para Continuar")
+            print(f"\tAluno não encontrado.")
+        input(f"\n\t\t===>Pressione Enter Para Continuar")
     elif menu == 3:
-        print(f"O Aluno de Maior Média Final é o(a) {registro[melhorA][0]}, com Média Final de {registro[melhorA][4] : .1f}.")
-        input(f"\n\t===>Pressione Enter Para Continuar")
+        print(f"\tO Aluno de Maior Média Final é o(a) {registro[melhorA][0]}, com Média Final de {registro[melhorA][4] : .1f}.")
+        input(f"\n\t\t===>Pressione Enter Para Continuar")
     elif menu == 4:
-        print(f"O Aluno de Menor Média Final é o(a) {registro[piorA][0]}, com Média Final de {registro[piorA][4] : .1f}.")
-        input(f"\n\t===>Pressione Enter Para Continuar")
+        print(f"\tO Aluno de Menor Média Final é o(a) {registro[piorA][0]}, com Média Final de {registro[piorA][4] : .1f}.")
+        input(f"\n\t\t===>Pressione Enter Para Continuar")
     elif menu == 5:
-        print(f"O percentual de alunos com média final superior a 5 é de {pAluno:.1f}%")
-        input(f"\n\t===>Pressione Enter Para Continuar")
+        print(f"\tO percentual de alunos com média final superior a 5 é de {pAluno:.1f}%")
+        input(f"\n\t\t===>Pressione Enter Para Continuar")
     else:
-        print("Digite uma opção válido!")
-        input(f"\n\t===>Pressione Enter Para Continuar")
+        print("\tDigite uma opção válida!")
+        input(f"\n\t\t===>Pressione Enter Para Continuar")
             
