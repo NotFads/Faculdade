@@ -20,20 +20,35 @@ while programaAtivo == 1:
         consulta = int(input(f'Tipos de Consulta\n1. Código do voo.\n2. Cidade Origem.\n3. Cidade Destino.'))
         if consulta == 1:
             codigo = int(input('Entre o código que você deseja buscar: '))
-            for codigo in voos.keys():
-                print(voos)
+            for voo in voos.keys():
+                if codigo == voos.keys():
+                    print(voos.values())
         elif consulta == 2:
             cidadeOB = input('Entre a cidade de origem que você deseja buscar: ')
-            for origem in voos.values():
-                if voos[0] == cidadeOB:
-                    print(voos)
-
-        elif consulta == 3:
-            cidadeDB = input('Entre com a cidade de destino que você deseja buscar: ')
-            for destino in voos.values():
-                encontrado = 0
-                if voos[1] == cidadeDB:
-                    print(voos)
+            encontrado = 0
+            for voo in voos.values():
+                if voo[0] == cidadeOB:
+                    print(voo)
                     encontrado = 1
                 if encontrado == 0:
                     print('Voo não encontrado.')
+
+        elif consulta == 3:
+            cidadeDB = input('Entre com a cidade de destino que você deseja buscar: ')
+            encontrado = 0
+            for voo in voos.values():
+                if voo[1] == cidadeDB:
+                    print(voo)
+                    encontrado = 1
+                if encontrado == 0:
+                    print('Voo não encontrado.')
+    elif menu == 3:
+        menorEscala = 999999
+        codigo = -1
+        for voo in voos.values():
+            if voo[2] < menorEscala:
+                menorEscala = voo[2]
+                codigo = voos.keys()
+        for voo in voos.values():
+            if voos.keys() == codigo:
+                print(voo)
