@@ -67,7 +67,7 @@ while programaAtivo == 1:
         passageiros[cpf] = [nome,tel]
         compra.append(passageiros[cpf])
         print(passageiros)
-    elif menu == 6:q
+    elif menu == 6:
         cpfB = input('Entre com o CPF do comprador: ')
         for codigo, dados in voos.items():
             if dados == compra[cpfB]:
