@@ -52,10 +52,19 @@ while programaAtivo == 1:
                 if voo[2] < menorE:
                     menorE = voo[2]
                     print(voo)
-    #elif menu == 4:
+    elif menu == 4:
+        voo_codigo = int(input('Digite o número do voo para listar os passageiros: '))
+        if voo_codigo in voos:
+            print(f'Passageiros do voo {voo_codigo}:')
+            
+            for cpf, dados in passageiros.items():
+                if dados[2] == voo_codigo:
+                    print(f'CPF: {cpf} Nome: {dados[0]}, Telefone: {dados[1]}')
+        else:
+            print('Voo não encontrado.')
     elif menu == 5:
-        for i in range(len(disponiveis)):
-            print(f'Voo {i} : {disponiveis[i]}')
+        for codigo in disponiveis:
+            print(f'Voo {codigo} : {disponiveis}')
         disponiveisB = int(input('Entre o voo que você está interessado: '))
         cpf = input('Entre com o seu CPF: ')
         nome = input('Entre com o seu nome: ')
@@ -64,7 +73,7 @@ while programaAtivo == 1:
         for codigo, dados in voos.items():
             if dados == disponiveis[disponiveisB]:
                 voos[codigo][4] -= passagem
-        passageiros[cpf] = [nome,tel]
+        passageiros[cpf] = [nome,tel, disponiveisB]
         compra.append(passageiros[cpf])
         print(passageiros)
     elif menu == 6:
