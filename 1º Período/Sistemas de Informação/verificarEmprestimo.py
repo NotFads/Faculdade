@@ -1,4 +1,4 @@
-def verificarElegibilidade(idade,rendaMensal,inadimplentes,nome):
+def verificarElegibilidade(idade,rendaMensal,inadimplentes,nome, escolaridade):
     elegivel = True
     motivos = []
     if idade < 18:
@@ -10,15 +10,17 @@ def verificarElegibilidade(idade,rendaMensal,inadimplentes,nome):
     if nome in inadimplentes:
         elegivel = False
         motivos.append("Está na lista de inadimplentes.")
+    if escolaridade != "Superior":
+        elegivel = False
+        motivos.append("Não possui ensino superior!")
     return elegivel,motivos
 
 lista_negra = ['Jorge','Roberto', 'Jessica']
-
 idade = int(input('Entre com a sua idade: '))
-rendaMensal = float(input('Entre com a sua renda mensal: '))
+rendaMensal = float(input('Ent/re com a sua renda mensal: '))
 nome = input('Entre com o seu nome: ')
-
-elegivel, motivos =  verificarElegibilidade(idade,rendaMensal,lista_negra,nome)
+escolaridade = input('Entre com a sua escolaridade: ')
+elegivel, motivos =  verificarElegibilidade(idade,rendaMensal,lista_negra,nome, escolaridade)
 if elegivel:
     print("Você é elegível para o empréstimo!")
 else:
