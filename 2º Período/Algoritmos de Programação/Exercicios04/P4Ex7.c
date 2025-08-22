@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
                 aux = vetor[i];
                 vetor[i] = vetor[i + 1];
                 vetor[i + 1] = aux;
-                mustStop = false;
+                mustStop = false;   
             }
         }
     }
