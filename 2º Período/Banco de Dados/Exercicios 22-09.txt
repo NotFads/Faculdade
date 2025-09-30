@@ -1,0 +1,7 @@
+1) Sim o TINYINT é considerado como uma boa prática para substituir o BOOL já que ele não é nativo do mysql.
+2) ativo BOOLEAN DEFAULT TRUE;
+3) TIMESTAMP é um tipo de variável do SQL já o CURRENT_TIMESTAMP é uma função do sql que retorna a data e hora atual do sistema do usuário.
+4) O comando define um coluna com o nome de data_atualização como um tipo TIMESTAMP e coloca o DEFAULT como o CURRENT_TIMESTAMP para que os valores dessa coluna por padrão esteja de acordo com a data e a hora do usuário, e por fim o dado dessa coluna é atualizado sempre que o usuário fazer um update para a data e o horário atual do sistema do usuário.
+5) O tipo DECIMAL, pois ele pode ser extremamente preciso e flexivel como por exemplo: DECIMAL(10,2) define o tipo de dado para um número que possui duas casas e 10 casas após a virgúla o que seria ideal para moedas como o real ou o dolar.
+6) Um indíce de uma tabela sql serve tal qual um indíce de um livro, o que ele faz é dizer para o computador procurar o dado desejado em um local específico ao invés do computador realizar um scan da coluna inteira atrás de um certo dado. Essa função pode ser utilizada por exemplo em um select com muitas condições no WHERE, assim deixando a leitura do SELECT muito mais rápida.
+7) Essa instrução cria um indice idx_assinaturas_usuario no id_usuario, assim facilitando qualquer consulta envolvendo o id_usuário.
