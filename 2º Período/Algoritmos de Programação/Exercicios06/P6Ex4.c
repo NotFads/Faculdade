@@ -10,9 +10,11 @@ int main(int argc, char const *argv[])
     scanf(" %[^\n]",&nome);
     printf("Entre com o seu sobrenome: ");
     scanf(" %[^\n]", &sobrenome);
-    str_final = strcat(nome,sobrenome);
+    strcpy(str_final, nome);
+    strcat(str_final, " ");
+    strcat(str_final, sobrenome);
     len = strlen(str_final);
-    printf("%s\n%d\n%c %c",str_final,len,str_final[0],str_final[len]);
+    printf("%s\n%d\n%c %c",str_final,len,str_final[0],str_final[len - 1]);
 
     return 0;
 }
