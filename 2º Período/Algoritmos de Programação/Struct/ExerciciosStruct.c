@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 typedef struct 
 {
@@ -8,33 +9,32 @@ typedef struct
     int idade;
 }Pessoa;
 
-void imprimirDados(Pessoa p)
+
+void receberPessoa(Pessoa *p1)
 {
-    printf("Nome: %s\n", p.nome);
-    printf("Idade: %d\n", p.idade);
+    printf("Entre com o nome da pessoa que voce deseja inserir: ");
+    scanf(" %49[^\n]", p1->nome);
+    getchar();
+    printf("Entre com a idade da pessoa que voce deseja inserir: ");
+    scanf("%d", &p1->idade);
+    printf("Nome: %s\nIdade: %d\n",p1->nome,p1->idade);
 }
 
-void imprimirDadosRef(const Pessoa *p)
+const char* PessoaMaisVelha(const Pessoa *p1,const Pessoa *p2)
 {
-    printf("Nome: %s\n", p->nome);
-    printf("Idade: %d\n", p->idade);
-}
-
-const char* pessoaMaisVelha(const Pessoa *pessoa1,const Pessoa *pessoa2)
-{
-    if (pessoa1->idade > pessoa2->idade)
+    if(p1->idade > p2->idade)
     {
-        return pessoa1->nome;
+        return p1->nome;
     }
     else
     {
-        return pessoa2->nome;
+        return p2->nome;
     }
 }
 
-bool verificarMaioridade(Pessoa p)
+bool MaiorDeIdade(Pessoa *p1)
 {
-    if(p.idade >= 18)
+    if(p1->idade >= 18)
     {
         return true;
     }
@@ -44,36 +44,69 @@ bool verificarMaioridade(Pessoa p)
     }
 }
 
-void 
+void MostrarNomesCadastrados(int sz, Pessoa **pessoas)
+{
+    printf("\n--- Nomes Cadastrados ---\n");
+    for(int i = 0; i < sz; i++)
+    {
+        printf("Nome da pessoa %d: %s\n",i + 1,pessoas[i]->nome);
+    }
+}
 
+void ProcurarPorNome(int sz, Pessoa **pessoas,Pessoa *p1)
+{
+    bool pessoaEncontrada = false;
+    for(int i = 0; i < sz; i++)
+    {
+        if(strcpy(p1->nome,pessoas[i]->nome) == 0)
+        {
+            printf("Nome: %s\nIdade: %d\n",pessoas[i]->nome,pessoas[i]->idade);
+            pessoaEncontrada = true;
+        }
+    }
+    if(pessoaEncontrada == false)
+    {
+        printf("Pessoa nao encontrada");
+    }
+}
 
 int main(int argc, char const *argv[])
 {
-    Pessoa p1;
-    strcpy(p1.nome, "Felipe Augusto");
-    p1.idade = 18;
-    Pessoa p2;
-    strcpy(p2.nome, "Lorenzo");
-    p2.idade = 12;
-    imprimirDados(p1);
-    imprimirDadosRef(&p1);
-    printf("A pessoa mais velha e o(a) %s\n",pessoaMaisVelha(&p1,&p2));
-    if(verificarMaioridade(p1))
+    Pessoa *pessoa1 = malloc(sizeof(Pessoa));
+    Pessoa *pessoa2 = malloc(sizeof(Pessoa));
+    receberPessoa(pessoa1);
+    receberPessoa(pessoa2);
+
+    const char* nomeMaisVelho = PessoaMaisVelha(pessoa1,pessoa2);
+    printf("A pessoa mais velha eh o(a) %s.\n",nomeMaisVelho);
+
+    if(MaiorDeIdade(pessoa1))
     {
-        printf("O(A) %s e maior de idade.",p1.nome);
+        printf("O(A) %s eh maior de idade.\n",pessoa1->nome);
     }
     else
     {
-        printf("O(A) %s nao e maior de idade.",p1.nome);
+        printf("O(A) %s nao eh maior de idade.\n",pessoa1->nome);
     }
 
-    int num_pessoas = 3;
-    Pessoa pessoasVet[num_pessoas];
-    strcpy(pessoasVet[0].nome, "Thais");
-    pessoasVet[0].idade = 47;
-    strcpy(pessoasVet[1].nome, "Hermes");
-    pessoasVet[1].idade = 1;
-    strcpy(pessoasVet[2].nome, "Nega");
-    pessoasVet[2].idade = 15;
+    Pessoa *pessoaVec[3];
+    for(int i = 0;i<3;i++)
+    {
+        pessoaVec[i] = malloc(sizeof(Pessoa));
+        if (pessoaVec[i] == NULL)
+        {
+            printf("Erro de alocacao de memoria!\n");
+            return 1;
+        }
+        receberPessoa(pessoaVec[i]);
+    }
+    MostrarNomesCadastrados(3,pessoaVec);
+    ProcurarPorNome(3,pessoaVec,pessoa1);
+    free(pessoa1);
+    free(pessoa2);
+    for(int i = 0;i < 3;i++)
+    {
+        free(pessoaVec[i]);
+    }
     return 0;
 }
