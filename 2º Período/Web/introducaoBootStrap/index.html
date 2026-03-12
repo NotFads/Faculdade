@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">PUC-Campinas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Requerimentos</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Busca Avançada</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Menu
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Requerimentos passados</a></li>
+                    <li><a class="dropdown-item" href="#">Exportar requerimentos</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Suporte</a></li>
+                </ul>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">v.1.0.0</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Ra ou Nome" aria-label="Search"/>
+                <button class="btn btn-outline-info" type="submit">Buscar</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="alert alert-warning" style="margin-top: 20px;" role="alert">
+            Prof. Matheus, por favor responda o requerimento do estudante <strong>Mark Zuckerberg</strong> pois vencerá <strong>amanhã</strong>.
+        </div>
+        <h1 style="margin-top: 10px;">Requerimentos próximos do vencimento</h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">RA</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Motivo</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">25778121</th>
+                    <td>Mark Zuckerberg</td>
+                    <td>Segunda avaliação</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                <th scope="row">25619022</th>
+                <td>Jacob Steel</td>
+                <td>Revisão de frequência</td>
+                <td>-</td>
+                </tr>
+                <tr>
+                <th scope="row">25889902</th>
+                <td>John Doe</td>
+                <td>Segunda avaliação</td>
+                <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
