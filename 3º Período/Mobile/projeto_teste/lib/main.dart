@@ -1,16 +1,27 @@
+// Quando geramos um app hello world no flutter ele coloca todo o código em um arquivo main.dart
 import 'package:flutter/material.dart';
 //Para casa: gerar aplicativo de hello world traduzir os comentários e ler o código
+// Para casa: baseado no exemplo de hello world, criar uma aplicação que faz o cálculo de IMC em uma tela só, trazer pronto para a aula de laboratório. Tarefa 2: Tentar criar uma aplicação em flutter chamada calculadora eo layout seja uma tela só com o visor dos botões e o controlador de estados faça uso de todas as classes que o professor criou com você
 void main() {
+  // Toda aplicação em flutter tem um ponto de entrada main e nesse main tem a chamada de uma função nativa do flutter, que você não escreveu, chamada runApp. Ao chmar runApp, o parâmetro que ela espera é uma instância de um widget, de preferência StatelessWidget.
+  // runApp espera a instância de uma classe que representa a aplicação toda.
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
+
   // Esse widget é a raiz do aplicativo
   @override
+  // Contexto de execução: uma aplicação de flutter é uma árvore de widget, então o contexto gerencia essa árvore de widget.
+  // O que é gerenciar? É simplesmente cuidar do estado de cada widget que existe na aplicação, todo widget tem o método build, esse método build serve para construi-lo e por fim, coloca-lo na árvore junto com os demais.
   Widget build(BuildContext context) {
+    // No método build da classe MyApp de exemplo é rotornado um widget do tipo MaterialApp(uma instância da classe MaterialApp)
     return MaterialApp(
+      // Quando você usa o paradigma reativo declarativo você economiza memória, por isso não mantemos instâncias fora da declaração
+      // No método build da classe principla que representa a aplicação, criamos uma aplicação reativamente e informamos uma instância de quem será a tela principal(parâmentro home)
       title: 'Flutter Demo',
       theme: ThemeData(
         // Esse é o tema da aplicação.
@@ -35,6 +46,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+
   const MyHomePage({super.key, required this.title});
 
   // Este widget serve de página inicial da sua aplicação. Se estiver sem estado, ou seja, 
@@ -53,11 +65,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // Uma classe que representa o estado de uma tela separadamente
   int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
-      // Isso chama o setState e fala o frameword do Flutter que algo mudou nesse State, que 
+      // Isso chama o setState e fala o framework do Flutter que algo mudou nesse State, que 
       // faz essa função rodar novamente a build do metodo abaixo para que o display possa 
       // refletir os valores atualizados. Se nós mudamos o _counter sem chamar o setState(), 
       // o metodo da build não seria chamado novamente, e então nada pareceria ter mudado.
